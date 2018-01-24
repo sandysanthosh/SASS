@@ -1,0 +1,192 @@
+Sass :
+
+Sass is the most mature, stable, and powerful professional grade CSS extension language in the world.
+
+shorthand version
+
+
+->scss:
+
+
+<link rel="stylesheet" type="text/css" href="main.scss">
+
+->style awesome stylesheet
+
+->ruby installer
+
+install sass:
+css compiler
+regular css
+
+->variables
+->nesting
+->partials
+->mixins
+->extend,inherited
+->inheritance
+->include
+->extend
+->parameter
+
+main.css:
+
+$primary-color: green;
+$ff: #f2f2f2;
+$bg: red;
+
+@import 'colors';
+@import 'mixins';
+
+body{
+background: $bg;
+font-family: $ff;
+}
+h1{
+color:$primary-color;
+}
+p
+{ 
+color:$primary-color;
+}
+
+.container{
+ul li{
+ padding: 10px;
+}
+#box{
+backgroung:red;
+@include border-radius(5px);}
+height:20px;
+width:20px;
+}
+
+
+index.html:
+
+<div class="container">
+<div id="box">
+<p>test</p>
+<p>test11</p>
+</div>
+<h2>list</h2>
+<ul>
+<li>dog</li>
+<li>cat</li>
+<li>cat</li>
+</ul>
+</div>
+</body>
+</html>
+
+
+color.scss:
+
+.blue{color:'blue';}
+.red{color:'red';}    //partials
+
+
+mixins.scss:
+
+-webkit-border-radius:5px;
+
+@mixin border-radius($radius) {                  //boder radius
+  -webkit-border-radius: $radius;     //border kit
+     -moz-border-radius: $radius;    //mozilla 
+      -ms-border-radius: $radius;    //microsoft
+          border-radius: $radius;
+}
+
+.box { @include border-radius(10px); }
+
+
+@mixin->include parameter
+@mixin border-radius($radius){  // parameter
+}
+
+.little-panel{
+@extend .panel;
+@include border-radius(5px);
+}
+
+->include
+->extend
+->parameter
+
+operators:
+
++-/%*
+
+example1:
+
+$buttonpadding: 5px;
+
+.button{
+padding: $buttonpadding;
+}
+
+.jumbo-button{
+@extend .button;
+padding:$buttonpadding + 30;
+}
+.container
+  width: 100%
+
+example 2:
+
+article[role="main"]
+  float: left
+  width: 600px / 960px * 100%
+
+
+aside[role="complementary"]
+  float: right
+  width: 300px / 960px * 100%
+
+
+inheritance:
+
+
+.message, .success, .error, .warning {
+  border: 1px solid #cccccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  border-color: green;
+}
+
+.error {
+  border-color: red;
+}
+
+.warning {
+  border-color: yellow;
+}
+
+
+extend:
+
+->exted
+
+.panel{
+boder: 3px solid;
+margin: 10px;
+}
+
+.little-panel{
+@extend .panel;
+font-size:12px;
+padding:5px;
+}
+
+.big-panel{
+@extend .panel;
+@extend  .little-panel;
+font-size:20px;
+padding:20px;
+}
+
+
+
+
